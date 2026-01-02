@@ -33,49 +33,45 @@ neighborhood
 
 exterior materials
 
-Target variable:
 
-SalePrice
-
-ID column removed during preprocessing.
-
-
+Target variable: SalePrice
 
 # Data Cleaning & Preprocessing
 Key steps performed:
 
-dropped high-missing / low-value columns (Alley, PoolQC, Fence, MiscFeature)
+removed low-information columns
+(Alley, PoolQC, Fence, MiscFeature)
 
-filled categorical NaNs with "None"
+filled categorical missing values with "None"
 
-filled numerical NaNs with 0 or median values
+filled numerical missing values with 0 or median
 
-handled basement & garage missing values carefully
+handled basement & garage fields consistently
 
-imputed Electrical with mode
+imputed Electrical using mode
 
-applied one-hot encoding to all object-type features
+applied one-hot encoding to categorical features
 
-removed Id from feature set
+dropped Id before training
 
 Encoding performed via:
 
-cat_cols = df.select_dtypes(include=["object"]).columns
-df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
+    cat_cols = df.select_dtypes(include=["object"]).columns
+    df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
 
 
 
 # Train / Test Split
-from sklearn.model_selection import train_test_split
+    from sklearn.model_selection import train_test_split
 
-y = df["SalePrice"]
+    y = df["SalePrice"]
 
-X = df.drop(columns=["SalePrice", "Id"])
+    X = df.drop(columns=["SalePrice", "Id"])
 
-X_train, X_test, y_train, y_test = train_test_split(
+    X_train, X_test, y_train, y_test = train_test_split(
 
-    X, y, test_size=0.2, random_state=42
-)
+        X, y, test_size=0.2, random_state=42
+    )
 
 
 
@@ -113,12 +109,11 @@ XGBoost and Random Forest generally outperform the linear baseline on this datas
 
 
 # Tech Stack
-Python
+| Library      | Use                  |
+| ------------ | -------------------- |
+| Python       | Core language        |
+| pandas       | Data manipulation    |
+| NumPy        | Numerical operations |
+| scikit-learn | ML models & metrics  |
+| XGBoost      | Boosted regression   |
 
-pandas
-
-NumPy
-
-scikit-learn
-
-XGBoost
