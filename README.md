@@ -3,56 +3,56 @@ This project predicts residential house prices using the Ames Housing Dataset. T
 
 The notebook walks through:
 
-data cleaning & preprocessing,
+- data cleaning & preprocessing,
 
-encoding categorical variables,
+- encoding categorical variables,
 
-feature engineering,
+- feature engineering,
 
-training multiple models,
+- training multiple models,
 
-evaluating and comparing results.
+- evaluating and comparing results.
 
 
-# Dataset
+## Dataset
 The project uses: train.csv (standard Kaggle House Prices dataset)
 
 Each row represents a house and its properties such as:
 
-lot size
+- lot size
 
-basement quality
+- basement quality
 
-garage attributes
+- garage attributes
 
-number of rooms
+- number of rooms
 
-year built
+- year built
 
-neighborhood
+- neighborhood
 
-exterior materials
+- exterior materials
 
 
 Target variable: SalePrice
 
-# Data Cleaning & Preprocessing
+## Data Cleaning & Preprocessing
 Key steps performed:
 
-removed low-information columns
+- removed low-information columns
 (Alley, PoolQC, Fence, MiscFeature)
 
-filled categorical missing values with "None"
+- filled categorical missing values with "None"
 
-filled numerical missing values with 0 or median
+- filled numerical missing values with 0 or median
 
-handled basement & garage fields consistently
+- handled basement & garage fields consistently
 
-imputed Electrical using mode
+- imputed Electrical using mode
 
-applied one-hot encoding to categorical features
+- applied one-hot encoding to categorical features
 
-dropped Id before training
+- dropped Id before training
 
 Encoding performed via:
 
@@ -61,7 +61,7 @@ Encoding performed via:
 
 
 
-# Train / Test Split
+## Train / Test Split
     from sklearn.model_selection import train_test_split
 
     y = df["SalePrice"]
@@ -75,35 +75,35 @@ Encoding performed via:
 
 
 
-# Models Trained
+## Models Trained
 Baseline & ML ensemble models:
 
-Linear Regression
+- Linear Regression
 
-Random Forest Regressor
+- Random Forest Regressor
 
-XGBoost Regressor
+- XGBoost Regressor
 
 Evaluation metrics:
 
-Mean Absolute Error (MAE)
+- Mean Absolute Error (MAE)
 
-Root Mean Squared Error (RMSE)
+- Root Mean Squared Error (RMSE)
 
-R² Score
+- R² Score
 
 
 
-# Model Comparison
+## Model Comparison
 Each model was evaluated on test data and compared using:
 
-MAE → average prediction error
+- MAE → average prediction error
 
-RMSE → penalizes larger errors
+- RMSE → penalizes larger errors
 
-R² → variance explained by model
+- R² → variance explained by model
 
-XGBoost and Random Forest generally outperform the linear baseline on this dataset.
+- XGBoost and Random Forest generally outperform the linear baseline on this dataset.
 (Results may vary depending on parameters and data splits.)
 
 
