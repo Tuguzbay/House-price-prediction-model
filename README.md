@@ -2,16 +2,17 @@
 This project predicts residential house prices using the Ames Housing Dataset. The goal is to build and compare multiple regression models on tabular real-estate data, while practicing data cleaning, feature engineering, and evaluation of ML models.
 
 The notebook walks through:
-data cleaning & preprocessing
-encoding categorical variables
-feature engineering
-training multiple models
-evaluating and comparing results
+data cleaning & preprocessing,
+encoding categorical variables,
+feature engineering,
+training multiple models,
+evaluating and comparing results.
 
 
-📂 Dataset
+# Dataset
 The project uses: train.csv (standard Kaggle House Prices dataset)
 Each row represents a house and its properties such as:
+
 lot size
 basement quality
 garage attributes
@@ -25,7 +26,7 @@ ID column removed during preprocessing.
 
 
 
-🧹 Data Cleaning & Preprocessing
+# Data Cleaning & Preprocessing
 Key steps performed:
 dropped high-missing / low-value columns
 (Alley, PoolQC, Fence, MiscFeature)
@@ -41,7 +42,7 @@ df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
 
 
 
-✂️ Train / Test Split
+# Train / Test Split
 from sklearn.model_selection import train_test_split
 y = df["SalePrice"]
 X = df.drop(columns=["SalePrice", "Id"])
@@ -51,7 +52,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 
-🤖 Models Trained
+# Models Trained
 Baseline & ML ensemble models:
 Linear Regression
 Random Forest Regressor
@@ -63,7 +64,7 @@ R² Score
 
 
 
-📊 Model Comparison
+# Model Comparison
 Each model was evaluated on test data and compared using:
 MAE → average prediction error
 RMSE → penalizes larger errors
@@ -73,7 +74,7 @@ XGBoost and Random Forest generally outperform the linear baseline on this datas
 
 
 
-🛠️ Tech Stack
+# Tech Stack
 Python
 pandas
 NumPy
